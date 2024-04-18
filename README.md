@@ -4,7 +4,8 @@ Welcome to TRUMold, a fitness app designed to help you schedule and book session
 
 ## Figma Design
 Link to the Figma design: [TRUMold Figma Design](https://www.figma.com/file/y3UWcXZQoBfHdZCa12nYdM/TRUMold-App-Design-Mockups?type=design&node-id=1%3A16&mode=design&t=tPyKqJHeIxVlt8B2-1)
-
+![Screenshot 2024-04-18 at 2.29.26 PM.png](..%2F..%2F..%2FDesktop%2FScreenshot%202024-04-18%20at%202.29.26%E2%80%AFPM.png)
+![Screenshot 2024-04-18 at 2.29.09 PM.png](..%2F..%2F..%2FDesktop%2FScreenshot%202024-04-18%20at%202.29.09%E2%80%AFPM.png)
 
 ## Features
 
