@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/payments/{payment}": {
+      "name": "/payments/{payment}",
+      "lambdaFunction": "trumoldLambdaFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

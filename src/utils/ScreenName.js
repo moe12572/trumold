@@ -1,0 +1,31 @@
+const ScreenName ={
+ CREATESESSION:"CreateSession",
+ LOGIN:"Login",
+ INFORMATION:"Information",
+ CONFIRMATION:"Confirmation",
+ MEMBERHOME:"MemberHome",
+ COACHHOME:"CoachHome",
+ INFORMATION:"Information",
+ GENDER:"Gender",
+ WEIGHT:"Weight",
+ TARGETWEIGHT:"TargetWeight",
+ HEIGHT:"Height",
+ ACTIVITYLEVEL:"ActivityLevel",
+ CHOOSEDIET:"ChooseDiet",
+ SUCCESS:"Success",
+ WELCOME:"Welcome",
+ PROFILE:"Profile",
+ HOMECOACH:"HomeCoach",
+ MESSAGESCREEN:"MessageScreen",
+ COACHINFO:"Info",
+ PRIMARYID:"PrimaryId",
+ PAYMENT_METHOD:"PaymentMethod",
+ ADDCERTIFICATE:"AddCertificate",
+ SECONDARYID:"SecondaryId",
+ CONFIRMID:"ConfirmId",
+ CONFIRMCERTIFICATE:"ConfirmCertificate",
+ PROFILESETTING:"ProfileSettings",
+ COACHVERIFICATION:"CoachVerification"
+}
+
+export default ScreenName;

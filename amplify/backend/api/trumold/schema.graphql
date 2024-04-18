@@ -1,0 +1,154 @@
+# input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+# type Todo @model {
+#   id: ID!
+#   name: String!
+#   description: String
+# }
+enum NotificationMessageType {
+  COMMON
+  PAYMENT
+}
+
+type Notification @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  url: String
+  from: User @hasOne
+  to: User @hasOne
+  title: String
+  message: String
+  messageType: NotificationMessageType
+}
+
+type Message @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  text: String
+  user: User @hasOne
+  chatRoom: ChatRoom @hasOne
+}
+
+type ChatRoom @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  member: User @hasOne
+  coach: User @hasOne
+}
+
+type Rating @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  rating: Float
+  description: String
+  coach: User @hasOne
+  member: User @hasOne
+  session_id: BookSession @hasOne
+}
+
+type Banner @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  image: String
+}
+
+enum CategoryDetailBodyType {
+  UPPER
+  LOWER
+  FULL
+}
+
+enum CategoryDetailType {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCE
+}
+
+type CategoryDetail @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  image: String
+  title: String
+  timing: String
+  calories: String
+  bodyType: CategoryDetailBodyType
+  type: CategoryDetailType
+  Category: Category @belongsTo
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum UserRole {
+  MEMBER
+  COACH
+  ADMIN
+}
+
+type BookSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  appointment_date: AWSDate!
+  session_time: String
+  session_incorporate_time: String
+  session_slot: String
+  location: String
+  trainingType: String
+  coachID: ID!
+  status: String
+  reason: String
+  createdByID: ID! @index(name: "byUser", sortKeyFields: ["appointment_date"], queryField: "bookSessionBySorting")
+  createdByIDCoach: ID! @index(name: "byCoach", sortKeyFields: ["appointment_date"], queryField: "bookSessionBySortingCoach")
+  coach: User @belongsTo(fields: ["coachID"])
+  created_by_id: User @belongsTo(fields: ["createdByID"])
+  paymentStatus: Boolean
+}
+
+type Category @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  image: String
+  tag: String
+  CategoryDetail: CategoryDetail @hasOne
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  name: String
+  email: String!
+  image: String
+  age: Int
+  bio: String
+  phone: String
+  address: String
+  country: String
+  state: String
+  city: String
+  category: String
+  working_radius: String
+  hourly_rate: Int
+  cancellation_charge: String
+  primary_id: String
+  secondary_id: String
+  coaching_certificate: String
+  gender: String
+  height: String
+  weight: String
+  traget_weight: String
+  banner: String
+  currency: String
+  current_activity_lebel: String
+  meal_routine: String
+  login_provider: String
+  role: UserRole
+  status: UserStatus
+  user_id: String
+  experience: String
+  BookSessions: [BookSession] @hasMany(indexName: "byUser", fields: ["id"])
+  BookSessionsCoach: [BookSession] @hasMany(indexName: "byCoach", fields: ["id"])
+  expoToken: String
+  totalRating: Float
+  totalReview: Int
+  userStatus: String
+  isVerified: Boolean
+  accountId: String
+  isPaymentVerified: Boolean
+  isAdminStatus: String
+}
+ 
